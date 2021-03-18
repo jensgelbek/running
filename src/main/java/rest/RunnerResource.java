@@ -8,6 +8,7 @@ package rest;
 import dtos.RenameMeDTO;
 import dtos.RunnerDTO;
 import entities.RenameMeRepository;
+import entities.Runner;
 import entities.RunnerRepository;
 import facades.FacadeExample;
 import facades.FacadeRunner;
@@ -53,12 +54,15 @@ private final RunnerRepository REPO = FacadeRunner.getInstance(EMF);
 
     @Override
     public Response getById(int id) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        RunnerDTO runnerDTO=REPO.getById(id);
+        return Response.ok(GSON.toJson(runnerDTO)).build();
     }
 
     @Override
     public Response create(String requestBody) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        Runner parsedBody = GSON.fromJson(requestBody, Runner.class);
+        RunnerDTO createdRunnerDTO = REPO.create(new RunnerDTO(parsedBody));
+        return Response.ok(GSON.toJson(createdRunnerDTO)).build();
     }
 
     @Override

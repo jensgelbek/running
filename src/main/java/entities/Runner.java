@@ -13,6 +13,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.NamedQuery;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 /**
  *
@@ -29,6 +31,8 @@ public class Runner implements Serializable {
     private Long id;
     private String name;
     private String gender;
+    
+    @Temporal(TemporalType.DATE)
     private Date bDay;
 
     public Runner() {

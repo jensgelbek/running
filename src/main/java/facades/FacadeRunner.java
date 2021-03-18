@@ -8,6 +8,7 @@ package facades;
 import dtos.RunnerDTO;
 import entities.Runner;
 import entities.RunnerRepository;
+import java.util.Date;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -39,13 +40,26 @@ public class FacadeRunner implements RunnerRepository{
         return instance;
     }
     @Override
-    public RunnerDTO create(RunnerDTO rm) throws WebApplicationException {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public RunnerDTO create(RunnerDTO r) throws WebApplicationException {
+        EntityManager em = emf.createEntityManager();
+        Runner runner = new Runner(r.getName(), r.getGender(), r.getbDay());
+        try {
+            em.getTransaction().begin();
+            em.persist(runner);
+            em.getTransaction().commit();
+            
+        } finally {
+            em.close();
+        }
+        
+        return new RunnerDTO(runner);
+        
     }
 
     @Override
     public RunnerDTO getById(long id) throws WebApplicationException {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+                EntityManager em = emf.createEntityManager();
+                return new RunnerDTO(em.find((Runner.class), id));
     }
 
     @Override
