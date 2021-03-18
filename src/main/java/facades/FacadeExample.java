@@ -1,8 +1,8 @@
 package facades;
 
 import dtos.RenameMeDTO;
-import entities.renameme.RenameMe;
-import entities.renameme.RenameMeRepository;
+import entities.RenameMe;
+import entities.RenameMeRepository;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;

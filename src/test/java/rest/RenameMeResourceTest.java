@@ -1,7 +1,7 @@
 package rest;
 
 import dtos.RenameMeDTO;
-import entities.renameme.RenameMe;
+import entities.RenameMe;
 import io.restassured.http.ContentType;
 import java.util.List;
 import utils.EMF_Creator;

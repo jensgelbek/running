@@ -1,4 +1,4 @@
-package entities.renameme;
+package entities;
 
 import dtos.RenameMeDTO;
 import java.util.List;

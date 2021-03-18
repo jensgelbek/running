@@ -1,7 +1,7 @@
 package rest;
 
 import dtos.RenameMeDTO;
-import entities.renameme.RenameMeRepository;
+import entities.RenameMeRepository;
 import facades.FacadeExample;
 import java.util.List;
 import javax.ws.rs.Path;
